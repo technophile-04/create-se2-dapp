@@ -14,8 +14,13 @@ create("create-se2-dapp", {
   promptForAuthor: false,
   promptForDescription: false,
   promptForEmail: false,
-  promptForLicense: false,
   promptForPackageManager: false,
+  defaultAuthor: "BuidlGuidl",
+  defaultEmail: "",
+  defaultLicense: "MIT",
+  promptForLicense: false,
+  // Skipping yarn install because its does not work correctly
+  skipNpmInstall: true,
   extra: {
     initialGreeting: {
       type: "input",
@@ -23,24 +28,34 @@ create("create-se2-dapp", {
       default: "Building Unstoppable Apps with Scaffold-ETH 2",
       prompt: "if-no-arg",
     },
+    runYarn: {
+      type: "confirm",
+      describe: "Run yarn install after scaffolding app?",
+      default: true,
+      prompt: "if-no-arg",
+    },
   },
   defaultTemplate: "se-2-hardhat",
   promptForTemplate: true,
   defaultPackageManager: "yarn",
-  after: async ({ answers }) => {
-    console.log(
-      `The initial greetings is set to "${answers.initialGreeting}" in YourContract.sol`
-    );
+  after: async ({ answers, run }) => {
+    if (answers.runYarn) {
+      console.log(chalk.bold.blue("🏗️ Running yarn install..."));
+      console.log(`\n`);
+      await run("yarn");
+      console.log(`\n`);
+      console.log(chalk.bold.green("✅ Done!"));
+    }
   },
-  caveat: ({ name }) => {
+  caveat: ({ name, answers }) => {
     return `
     ${chalk.bold.green("Congratulations!")} Your project has been scaffolded! 🎉
     \n
     ${chalk.bold("Next steps:")}
     1. cd ${name}
-    2. yarn start
+    ${answers.runYarn ? "2. yarn start" : "2. yarn install"}
     \n
-    ${chalk.bold.green("Thanks for using Scaffold-ETH 2 🙏, Happy Hacking!")}
+    ${chalk.bold.green("Thanks for using Scaffold-ETH 2 🙏, Happy Building!")}
     `;
   },
 });
