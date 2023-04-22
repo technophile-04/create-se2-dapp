@@ -132,7 +132,7 @@ export const ContractData = () => {
           <div className="w-44 p-0.5 flex items-center bg-neutral border border-primary rounded-full">
             <div
               className="h-1.5 border border-primary rounded-full bg-secondary animate-grow"
-              style={{ animationPlayState: showTransition ? "running" : "paused" }}
+              style=\{{ animationPlayState: showTransition ? "running" : "paused" }}
             />
           </div>
         </div>

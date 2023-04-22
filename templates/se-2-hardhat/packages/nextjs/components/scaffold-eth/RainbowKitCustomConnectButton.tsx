@@ -48,7 +48,7 @@ export const RainbowKitCustomConnectButton = () => {
                         >
                           <ArrowsRightLeftIcon className="h-6 w-4 ml-2 sm:ml-0" />
                           <span className="whitespace-nowrap">
-                            Switch to <span style={{ color: networkColor }}>{configuredNetwork.name}</span>
+                            Switch to <span style=\{{ color: networkColor }}>{configuredNetwork.name}</span>
                           </span>
                         </button>
                       </li>
@@ -67,7 +67,7 @@ export const RainbowKitCustomConnectButton = () => {
                   <div className="flex justify-center items-center border-1 rounded-lg">
                     <div className="flex flex-col items-center">
                       <Balance address={account.address} className="min-h-0 h-auto" />
-                      <span className="text-xs" style={{ color: networkColor }}>
+                      <span className="text-xs" style=\{{ color: networkColor }}>
                         {chain.name}
                       </span>
                     </div>

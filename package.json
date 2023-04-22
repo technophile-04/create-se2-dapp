@@ -21,6 +21,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "create-create-app": "^7.3.0"
+    "create-create-app": "^7.3.0",
+    "chalk": "^4"
   }
 }

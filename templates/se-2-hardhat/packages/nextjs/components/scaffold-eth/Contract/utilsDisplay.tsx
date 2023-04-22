@@ -34,7 +34,7 @@ export const displayTxResult = (
     return asText ? (
       displayable
     ) : (
-      <span style={{ overflowWrap: "break-word", width: "100%" }}>{displayable.replaceAll(",", ",\n")}</span>
+      <span style=\{{ overflowWrap: "break-word", width: "100%" }}>{displayable.replaceAll(",", ",\n")}</span>
     );
   }
 
